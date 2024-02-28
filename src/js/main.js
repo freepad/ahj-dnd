@@ -1,4 +1,5 @@
 import "../css/style.scss";
+import "./dnd";
 
 // Import all of Bootstrap's JS
 import * as bootstrap from "bootstrap";
