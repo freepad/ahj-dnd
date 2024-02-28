@@ -25,8 +25,23 @@ function slist(target) {
 
     // (B3) DRAG ENTER - RED HIGHLIGHT DROPZONE
     i.ondragenter = (e) => {
+      e.preventDefault();
       if (i !== current) {
-        i.classList.add("active");
+        let currentpos = 0,
+          droppedpos = 0;
+        for (let it = 0; it < items.length; it++) {
+          if (current === items[it]) {
+            currentpos = it;
+          }
+          if (i === items[it]) {
+            droppedpos = it;
+          }
+        }
+        if (currentpos < droppedpos) {
+          i.parentNode.insertBefore(current, i.nextSibling);
+        } else {
+          i.parentNode.insertBefore(current, i);
+        }
       }
     };
 
@@ -47,23 +62,23 @@ function slist(target) {
     // (B7) ON DROP - DO SOMETHING
     i.ondrop = (e) => {
       e.preventDefault();
-      if (i !== current) {
-        let currentpos = 0,
-          droppedpos = 0;
-        for (let it = 0; it < items.length; it++) {
-          if (current === items[it]) {
-            currentpos = it;
-          }
-          if (i === items[it]) {
-            droppedpos = it;
-          }
-        }
-        if (currentpos < droppedpos) {
-          i.parentNode.insertBefore(current, i.nextSibling);
-        } else {
-          i.parentNode.insertBefore(current, i);
-        }
-      }
+      // if (i !== current) {
+      //   let currentpos = 0,
+      //     droppedpos = 0;
+      //   for (let it = 0; it < items.length; it++) {
+      //     if (current === items[it]) {
+      //       currentpos = it;
+      //     }
+      //     if (i === items[it]) {
+      //       droppedpos = it;
+      //     }
+      //   }
+      //   if (currentpos < droppedpos) {
+      //     i.parentNode.insertBefore(current, i.nextSibling);
+      //   } else {
+      //     i.parentNode.insertBefore(current, i);
+      //   }
+      // }
     };
   }
 }
