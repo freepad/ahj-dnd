@@ -17,7 +17,7 @@ function slist(target) {
     i.ondragstart = (e) => {
       current = i;
       for (let it of items) {
-        if (it != current) {
+        if (it !== current) {
           it.classList.add("hint");
         }
       }
@@ -25,7 +25,7 @@ function slist(target) {
 
     // (B3) DRAG ENTER - RED HIGHLIGHT DROPZONE
     i.ondragenter = (e) => {
-      if (i != current) {
+      if (i !== current) {
         i.classList.add("active");
       }
     };
@@ -47,14 +47,14 @@ function slist(target) {
     // (B7) ON DROP - DO SOMETHING
     i.ondrop = (e) => {
       e.preventDefault();
-      if (i != current) {
+      if (i !== current) {
         let currentpos = 0,
           droppedpos = 0;
         for (let it = 0; it < items.length; it++) {
-          if (current == items[it]) {
+          if (current === items[it]) {
             currentpos = it;
           }
-          if (i == items[it]) {
+          if (i === items[it]) {
             droppedpos = it;
           }
         }
