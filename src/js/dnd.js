@@ -1,4 +1,7 @@
 // SEE: https://code-boxx.com/drag-drop-sortable-list-javascript/
+// DOC: https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/draggable
+// DOC: https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API/Drag_operations
+
 function slist(target) {
   // (A) SET CSS + GET ALL LIST ITEMS
   target.classList.add("slist");
